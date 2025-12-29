@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Culinary Mastery Journey | 2025 Master Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f8f9fa;
+        --sidebar: #1e2924; /* Midnight Sage */
+        --accent: #8da399; /* Sage Green */
+        --accent-light: #e9edea;
+        --text: #2d3436;
+        --text-dim: #636e72;
+        --border: #dfe6e9;
+        --white: #ffffff;
+        --danger: #c0392b;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        display: flex;
+        min-height: 100vh;
+      }
+      aside {
+        width: 300px;
+        background: var(--sidebar);
+        color: white;
+        padding: 40px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        overflow-y: auto;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 100;
+      }
+      .brand {
+        font-family: "Arial", serif;
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        color: var(--accent);
+        letter-spacing: 1px;
+      }
+      #chefSearch {
+        width: 100%;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-size: 0.85rem;
+        outline: none;
+        margin-bottom: 20px;
+      }
+      .nav-group {
+        margin-bottom: 25px;
+      }
+      .nav-group-title {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #8da399;
+        opacity: 0.7;
+        margin-bottom: 10px;
+      }
+      .nav-link {
+        padding: 10px 15px;
+        display: block;
+        color: #b2bec3;
+        text-decoration: none;
+        font-size: 0.85rem;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 4px;
+        transition: 0.2s;
+      }
+      .nav-link:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+      }
+      .nav-link.active {
+        background: var(--accent);
+        color: var(--sidebar);
+        font-weight: 600;
+      }
+      main {
+        flex: 1;
+        margin-left: 300px;
+        padding: 60px;
+        max-width: 1100px;
+      }
+      header {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      h1 {
+        font-family: "Arial", serif;
+        font-size: 2.5rem;
+        color: var(--sidebar);
+      }
+      .prog-container {
+        width: 250px;
+        height: 6px;
+        background: var(--border);
+        margin-top: 10px;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .prog-fill {
+        height: 100%;
+        background: var(--accent);
+        width: 0%;
+        transition: 1s ease-out;
+      }
+      .card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        padding: 35px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        animation: fadeIn 0.4s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .log-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 0.8rem;
+      }
+      .log-table th {
+        background: #f1f3f2;
+        color: var(--sidebar);
+        padding: 10px;
+        text-align: left;
+        font-weight: 600;
+        border: 1px solid var(--border);
+      }
+      .log-table td {
+        border: 1px solid var(--border);
+        padding: 0;
+      }
+      .log-table input {
+        width: 100%;
+        border: none;
+        padding: 10px;
+        outline: none;
+        background: transparent;
+        font-family: inherit;
+      }
+      .reflection-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .reflection-field {
+        background: #fafafa;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+      }
+      .reflection-field label {
+        display: block;
+        font-size: 0.65rem;
+        font-weight: bold;
+        color: var(--sidebar);
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-family: inherit;
+        font-size: 0.85rem;
+        resize: vertical;
+        min-height: 60px;
+        line-height: 1.5;
+      }
+      .photo-box {
+        border: 2px dashed var(--accent);
+        padding: 30px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        background: #fffcfc;
+        transition: 0.3s;
+        margin-top: 20px;
+      }
+      .photo-box:hover {
+        background: var(--accent-light);
+      }
+      .img-preview {
+        max-width: 100%;
+        max-height: 400px;
+        border-radius: 8px;
+        margin-top: 15px;
+        display: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .week-title {
+        font-weight: 600;
+        color: var(--sidebar);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        border-left: 4px solid var(--accent);
+        padding-left: 15px;
+      }
+      .day-row {
+        display: grid;
+        grid-template-columns: 30px 110px 1fr;
+        gap: 15px;
+        margin-bottom: 12px;
+        font-size: 0.9rem;
+        align-items: center;
+      }
+      .milestone {
+        background: var(--accent-light);
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+        font-size: 0.9rem;
+        border-left: 4px solid var(--accent);
+        color: var(--sidebar);
+      }
+      .recipe-badge-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+      }
+      .recipe-badge {
+        background: var(--accent);
+        /* border: 2px solid var(--sidebar); */
+        color: var(--sidebar);
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+      .btn-export {
+        background: var(--sidebar);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+      @media print {
+        aside,
+        .btn-export {
+          display: none !important;
+        }
+        main {
+          margin-left: 0;
+          padding: 0;
+        }
+        .card {
+          box-shadow: none;
+          border: 1px solid #eee;
+          break-inside: avoid;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-toggle {
+          display: block;
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          z-index: 101;
+          background: var(--sidebar);
+          color: var(--accent);
+          border: none;
+          padding: 12px 16px;
+          border-radius: 8px;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+        aside {
+          transform: translateX(-100%);
+          transition: transform 0.3s;
+        }
+        aside.open {
+          transform: translateX(0);
+        }
+        main {
+          margin-left: 0;
+          padding: 20px;
+          padding-top: 80px;
+        }
+        h1 {
+          font-size: 1.8rem;
+        }
+        .prog-container {
+          width: 100%;
+        }
+        .card {
+          padding: 20px;
+        }
+        .day-row {
+          grid-template-columns: 30px 1fr;
+          font-size: 0.85rem;
+        }
+        .reflection-grid {
+          grid-template-columns: 1fr;
+        }
+        .log-table {
+          font-size: 0.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <div class="brand">Chef's Journal</div>
+      <input
+        type="text"
+        id="chefSearch"
+        placeholder="Search techniques..."
+        onkeyup="handleSearch(this.value)"
+      />
+      <div id="nav-container"></div>
+    </aside>
+
+    <main>
+      <header>
+        <div>
+          <h1 id="view-title">Culinary Journey</h1>
+          <div class="prog-container">
+            <div class="prog-fill" id="master-progress"></div>
+          </div>
+        </div>
+        <button class="btn-export" onclick="window.print()">
+          Export Portfolio (PDF)
+        </button>
+      </header>
+      <div id="content-mount"></div>
+    </main>
+
+    <script>
+      const cookingCurriculum = {
+        months: {
+          1: {
+            title: "Knife Skills, Heat Control & Precise Measurement",
+            theme: "The Fundamentals That Change Everything",
+            recipes: [
+              "Perfect white rice",
+              "Nigerian tomato stew (base recipe)",
+              "Basic pepper sauce",
+              "Fried plantains (three ripeness levels)",
+              "Grilled chicken (marinated properly)",
+              "Basic jollof rice",
+              "Moi moi (teaches steaming and blending)",
+              "Simple coleslaw (knife skills practice)",
+            ],
+            resources:
+              "YouTube: 'Nigerian Kitchen basics' + 'Knife Skills 101'. Local: Zeelicious Foods, Sisi Yemmie. Book: Salt, Fat, Acid, Heat by Samin Nosrat.",
+            weeks: [
+              {
+                name: "Week 1: Knife Skills Foundation",
+                days: {
+                  "Monday-Tuesday":
+                    "Watch knife skills videos, practice grip and safety.",
+                  Wednesday:
+                    "Practice only chopping onions (3 onions, different sizes: large dice, medium dice, small dice, mince).",
+                  Thursday:
+                    "Practice only cutting tomatoes (slicing, dicing, concasse).",
+                  Friday:
+                    "Practice cutting bell peppers (julienne, dice, strips).",
+                  Weekend:
+                    "Project: Make a simple stew requiring all cuts learned (Nigerian tomato stew base).",
+                },
+                measurement_focus:
+                  "Use measuring cups/spoons for EVERYTHING. Write down measurements.",
+                milestone: "Achieve consistent, safe knife cuts.",
+              },
+              {
+                name: "Week 2: Heat Control Mastery",
+                days: {
+                  "Mon-Tue":
+                    "Rice cooked 3 ways—high heat (bad), medium heat (good), low simmer (perfect).",
+                  Wednesday:
+                    "Sautéing vegetables at different temperatures—observe differences.",
+                  Thursday:
+                    "Pan-frying plantains—control heat to avoid burning.",
+                  Friday:
+                    "Making jollof rice—understanding layered heat control.",
+                  Weekend:
+                    "Master a perfect pot of white rice and beans separately.",
+                },
+                measurement_focus:
+                  "Measure water-to-rice ratios precisely. Note what works.",
+                milestone: "Understanding water-to-rice ratios.",
+              },
+              {
+                name: "Week 3: Building Flavor Bases",
+                days: {
+                  "Mon-Tue":
+                    "Perfect the Nigerian flavor trinity (onion, tomato, pepper blend).",
+                  Wednesday:
+                    "Make 3 batches of tomato base—learn what 'done' looks like.",
+                  Thursday:
+                    "Practice making pepper sauce with controlled spice levels.",
+                  Friday:
+                    "Create your own seasoning blend (measure precisely, document).",
+                  Weekend:
+                    "Make chicken stew from scratch using all techniques.",
+                },
+                measurement_focus:
+                  "Measure all spices. Create your first 'recipe card.'",
+                milestone: "Identifying 'done' by look and smell.",
+              },
+              {
+                name: "Week 4: Integration & First Milestone",
+                days: {
+                  "Mon-Wed":
+                    "Cook one complete meal daily using Week 1-3 skills.",
+                  Thursday:
+                    "Mise en place practice—prep ingredients for multiple dishes.",
+                  Friday:
+                    "Speed challenge—how fast can you prep vegetables safely?",
+                  Weekend:
+                    "Milestone: Host a small meal (Jollof rice, chicken stew, fried plantains, salad).",
+                },
+                milestone: "Hosting your first full meal with confidence.",
+              },
+            ],
+            assessment: [
+              "Can you dice an onion in under 3 minutes with consistent pieces?",
+              "Can you cook rice perfectly 3 times in a row?",
+              "Do you measure ingredients without thinking it's tedious?",
+              "Can you taste something and identify if it needs salt, acid, or fat?",
+            ],
+          },
+          2: {
+            title: "Sauce Making, Protein Preparation & Taste Development",
+            theme: "Understanding Why Food Tastes Good",
+            recipes: [
+              "Classic béchamel sauce",
+              "Pan sauce (from chicken drippings)",
+              "Herb-infused oil",
+              "Perfect roast chicken",
+              "Beef stir-fry with vegetables",
+              "Nigerian pepper soup (flavor layering)",
+              "French omelet (technique builder)",
+              "Simple vinaigrette (3 variations)",
+            ],
+            resources:
+              "Videos on 'how to taste food like a chef'. Nigerian protein market guides. Practice 'seasoning to taste' without measuring.",
+            weeks: [
+              {
+                name: "Week 1: Sauce Fundamentals",
+                days: {
+                  "Mon-Tue":
+                    "Learn roux-based sauces (make white sauce/béchamel for macaroni).",
+                  Wednesday:
+                    "Tomato-based sauces (marinara, Nigerian stew variations).",
+                  Thursday:
+                    "Oil-based sauces (learn emulsification with salad dressings).",
+                  Friday:
+                    "Reduction sauces (pan sauces from chicken drippings).",
+                  Weekend:
+                    "Make 4 different sauces, taste them, note differences.",
+                },
+                taste_training:
+                  "After each sauce, taste and write down: Is it salty enough? Does it need acid (lemon)? Is it too thin/thick?",
+                milestone: "Master 5 mother sauces (Nigerian-adapted).",
+              },
+              {
+                name: "Week 2: Protein Mastery Part 1 (Chicken)",
+                days: {
+                  Monday:
+                    "Whole chicken breakdown—learn to cut it yourself (cheaper!).",
+                  Tuesday: "Pan-seared chicken breast (learn proper browning).",
+                  Wednesday:
+                    "Oven-roasted chicken thighs (understand carryover cooking).",
+                  Thursday: "Grilled chicken (charcoal or stovetop grill pan).",
+                  Friday:
+                    "Chicken stock from scratch (save bones from Monday).",
+                  Weekend:
+                    "Make a complete chicken dinner using multiple techniques.",
+                },
+                milestone: "Consistency in protein doneness.",
+              },
+              {
+                name: "Week 3: Protein Mastery Part 2 (Beef & Eggs)",
+                days: {
+                  Monday:
+                    "Learn beef cuts available in Lagos markets, buy and label.",
+                  Tuesday: "Perfect steak (if budget allows) or beef stir-fry.",
+                  Wednesday:
+                    "Slow-braised beef stew (tough cuts become tender).",
+                  Thursday: "Suya-spiced beef (learn spice coating technique).",
+                  Friday: "Egg techniques—scrambled, fried, poached, omelet.",
+                  Weekend: "Beef pepper soup + perfect omelet brunch.",
+                },
+                milestone: "Mastering searing vs. braising.",
+              },
+              {
+                name: "Week 4: Flavor Balancing Workshop",
+                days: {
+                  "Mon-Wed":
+                    "Each day, make one dish and intentionally adjust it: make it too salty then fix it, too acidic then balance it, or bland then build flavor.",
+                  Thursday:
+                    "Blind taste test—have someone swap salt/sugar containers, see if you can identify.",
+                  Friday:
+                    "Create a sauce from scratch with no recipe, using balance principles.",
+                  Weekend:
+                    "Milestone: Three-course meal—appetizer, main, simple dessert.",
+                },
+                milestone: "Critical tasting skills development.",
+              },
+            ],
+            assessment: [
+              "Can you make a pan sauce without a recipe?",
+              "Can you cook chicken breast without drying it out?",
+              "Can you taste something and know what's missing?",
+              "Can you break down a whole chicken in under 15 minutes?",
+            ],
+          },
+          3: {
+            title: "Baking Fundamentals & Recipe Intuition Building",
+            theme: "Precision Baking Meets Creative Cooking",
+            recipes: [
+              "Basic white bread",
+              "Banana bread",
+              "Pie crust/tart shell",
+              "Puff-puff",
+              "Simple cake (victoria sponge or vanilla)",
+              "Nigerian meat pie (combines pastry + filling)",
+              "'Freestyle' jollof (no recipe)",
+              "'Freestyle' stir-fry (no recipe)",
+            ],
+            resources:
+              "Flour Water Salt Yeast by Ken Forkish. Nigerian baking blogs. YouTube: 'Bread making for beginners'.",
+            weeks: [
+              {
+                name: "Week 1: Bread Basics",
+                days: {
+                  Monday:
+                    "Learn about yeast, gluten, and fermentation (theory day).",
+                  Tuesday: "Make simple flatbread/pancakes (no yeast).",
+                  Wednesday: "Basic white bread (first yeast bread).",
+                  Thursday: "Same bread recipe, no notes—trust your memory.",
+                  Friday:
+                    "Fail intentionally—make bread with wrong ratio, see what happens.",
+                  Weekend: "Perfect the white bread recipe, make 2 loaves.",
+                },
+                milestone: "Understanding fermentation chemistry.",
+              },
+              {
+                name: "Week 2: Quick Breads & Pastries",
+                days: {
+                  Monday: "Banana bread (practice mixing methods).",
+                  Tuesday: "Scones or biscuits (learn 'cutting in' fat).",
+                  Wednesday: "Pancakes from scratch (no box mix).",
+                  Thursday: "Chin chin or puff-puff (Nigerian fried dough).",
+                  Friday: "Simple pie crust (conquer fear of pastry).",
+                  Weekend: "Bake something for others—get feedback.",
+                },
+                milestone: "Mastering fat incorporation.",
+              },
+              {
+                name: "Week 3: Recipe Deconstruction",
+                days: {
+                  "Mon-Tue":
+                    "Take 3 favorite recipes, rewrite them in your own words.",
+                  Wednesday: "Cook jollof rice with NO recipe—trust yourself.",
+                  Thursday:
+                    "Make stew with whatever proteins/vegetables you have.",
+                  Friday:
+                    "'Fridge clean-out' challenge—create meal from random ingredients.",
+                  Weekend:
+                    "Cook a full meal with no written recipes, just memory and instinct.",
+                },
+                milestone: "Intuition over measurement.",
+              },
+              {
+                name: "Week 4: Integration & Q1 Final Exam",
+                days: {
+                  "Mon-Wed":
+                    "Cook different cuisines each day using Month 1-3 skills.",
+                  Thursday:
+                    "Grocery shopping challenge—buy ingredients and plan 3 meals on the spot.",
+                  Friday: "Batch cooking—prepare multiple meals for the week.",
+                  Weekend:
+                    "Quarter 1 Final Exam: Host a small dinner (2-4 people). Only one written recipe allowed (for dessert).",
+                },
+                milestone: "Hosting with minimal stress.",
+              },
+            ],
+            assessment: [
+              "Can you bake bread that rises properly?",
+              "Can you make dinner for 4 without a recipe?",
+              "Do you taste as you cook automatically?",
+              "Can you identify when something is 'done' by look/smell/taste?",
+            ],
+          },
+          4: {
+            title: "Deep Flavor Building & Nigerian Cuisine Elevation",
+            theme: "Making the Ordinary Extraordinary",
+            recipes: [
+              "Party jollof rice (smoky, perfect crust)",
+              "Restaurant-quality egusi soup",
+              "Custom spice blend collection",
+              "Suya-spiced proteins (beef, chicken, vegetables)",
+              "Jollof risotto (fusion)",
+              "Elevated moi moi (with variations)",
+              "Nigerian-style pasta",
+              "Plantain 3 ways",
+            ],
+            resources:
+              "Nigerian chef Instagram accounts for plating. 'Wok Skills' videos. The Flavor Bible (ingredient pairing).",
+            weeks: [
+              {
+                name: "Week 1: Aromatics & Spice Mastery",
+                days: {
+                  Monday:
+                    "Study Nigerian spice blends (suya, pepper soup)—make your own.",
+                  Tuesday:
+                    "Spice blooming technique (toast spices, bloom in oil).",
+                  Wednesday:
+                    "Create custom curry powder, use in chicken curry.",
+                  Thursday:
+                    "Herb pastes (blend herbs + oil—Nigerian 'green sauce' style).",
+                  Friday: "Infused oils (garlic oil, chili oil, herb oil).",
+                  Weekend:
+                    "Create 3 signature spice blends, label and jar them.",
+                },
+                milestone: "Mastering depth via blooming.",
+              },
+              {
+                name: "Week 2: Nigerian Classics Elevated",
+                days: {
+                  Monday:
+                    "Jollof rice—restaurant version (smoky party jollof).",
+                  Tuesday: "Egusi soup—refined technique, perfect consistency.",
+                  Wednesday:
+                    "Fried rice—proper wok technique, bright vegetables.",
+                  Thursday: "Pepper chicken—maximize flavor, crispy skin.",
+                  Friday: "Moi moi—smooth texture, interesting add-ins.",
+                  Weekend:
+                    "Traditional Nigerian feast with elevated techniques.",
+                },
+                milestone: "Restaurant-quality staples.",
+              },
+              {
+                name: "Week 3: Fusion Experimentation (Low Risk)",
+                days: {
+                  Monday:
+                    "Jollof risotto (Nigerian flavors, Italian technique).",
+                  Tuesday: "Suya-spiced grilled vegetables.",
+                  Wednesday:
+                    "Plantain in different forms (tostones, chips, caramelized).",
+                  Thursday:
+                    "African-Asian fusion (stir-fry with Nigerian pepper sauce).",
+                  Friday: "Pasta with Nigerian tomato stew sauce base.",
+                  Weekend: "Create one original fusion dish, document recipe.",
+                },
+                milestone: "Applying foreign tech to local ingredients.",
+              },
+              {
+                name: "Week 4: Plating & Presentation",
+                days: {
+                  "Mon-Wed":
+                    "Practice restaurant-style plating: odd numbers, height, negative space, sauce dots.",
+                  Thursday:
+                    "Food photography—learn to make food look as good as it tastes.",
+                  Friday: "Meal prep with beautiful presentation.",
+                  Weekend:
+                    "Milestone: 'Pop-up restaurant' at home—cook for friends/family, plate beautifully.",
+                },
+                milestone: "Visual presentation mastery.",
+              },
+            ],
+            assessment: [
+              "Can you create depth of flavor without just adding more pepper?",
+              "Can you take a basic Nigerian dish and make it restaurant-quality?",
+              "Does your food look as good as it tastes?",
+              "Have you created at least one original recipe?",
+            ],
+          },
+          5: {
+            title: "Sauce Mastery & Cooking Without Recipes",
+            theme: "The Sauce Boss—Intuitive Flavor Creation",
+            recipes: [
+              "Five mother sauces (mastered)",
+              "Pan sauce formula (protein + aromatics + liquid + fat)",
+              "Nigerian red sauce variations (3 types)",
+              "Quick mayonnaise + flavored variations",
+              "'Emergency' fried rice",
+              "Bread pudding/French toast (stale bread rescue)",
+              "Bean porridge variations",
+              "'Fridge cleanout' stir-fry",
+            ],
+            resources:
+              "Study chefs who improvise (Sorted Food on YouTube). Nigerian market ingredient guides. Flavor pairing research.",
+            weeks: [
+              {
+                name: "Week 1: Classic Sauce Families (Nigerian Context)",
+                days: {
+                  Monday:
+                    "Oil-based sauces (vinaigrettes, herb oils, chili crisp).",
+                  Tuesday:
+                    "Tomato-based sauces (marinara, arrabiata, stew variations).",
+                  Wednesday:
+                    "Cream-based sauces (Alfredo, béchamel, pepper cream).",
+                  Thursday: "Reduction sauces (pan sauces, glazes).",
+                  Friday:
+                    "Emulsified sauces (mayonnaise, hollandaise, modern twists).",
+                  Weekend:
+                    "Create a 'sauce library'—make 5 sauces, freeze portions.",
+                },
+                milestone: "Mastering Mother Sauces.",
+              },
+              {
+                name: "Week 2: Improvisation Training",
+                days: {
+                  Monday: "'Mystery box' challenge—random ingredients.",
+                  Tuesday:
+                    "One protein, three sauces—see how sauce changes everything.",
+                  Wednesday:
+                    "'Pantry diving'—cook with only what's in your pantry.",
+                  Thursday:
+                    "Leftover transformation—turn yesterday's rice into something new.",
+                  Friday:
+                    "'Market inspiration'—buy what looks good, plan at home.",
+                  Weekend: "No-recipe weekend—trust your instincts completely.",
+                },
+                milestone: "Overcoming 'stove fear'.",
+              },
+              {
+                name: "Week 3: Ingredient Substitution & Flexibility",
+                days: {
+                  Monday:
+                    "Learn substitution rules (acid for acid, fat for fat).",
+                  Tuesday:
+                    "Make the same dish 3 ways with different vegetables.",
+                  Wednesday:
+                    "Protein swaps—use same marinade on chicken, beef, and mushrooms.",
+                  Thursday:
+                    "Dairy-free Nigerian cooking (coconut milk, plant-based options).",
+                  Friday: "Work with budget cuts—make tough meat tender.",
+                  Weekend:
+                    "'Cook with constraints'—limit to 5 ingredients, make 3 dishes.",
+                },
+                milestone: "Technical flexibility.",
+              },
+              {
+                name: "Week 4: 'Something from Nothing' Mastery",
+                days: {
+                  Monday: "Day 1: Dry rice, egg, onion—make a meal.",
+                  Tuesday: "Day 2: Stale bread, tomatoes, protein—make a meal.",
+                  Wednesday: "Day 3: Beans, peppers, spices—make a meal.",
+                  Thursday:
+                    "Create 'emergency meals' list—dishes you can always make.",
+                  Friday: "Teach someone else to cook without a recipe.",
+                  Weekend:
+                    "Milestone: Host a meal where you DON'T plan the menu until you shop.",
+                },
+                milestone: "Cooking from random inventory.",
+              },
+            ],
+            assessment: [
+              "Can you make a complete meal without checking a single recipe?",
+              "Can you create a sauce to complement any protein?",
+              "Can you look at random ingredients and see a meal?",
+              "Do you understand substitutions well enough to adapt any recipe?",
+            ],
+          },
+          6: {
+            title: "Advanced Techniques & Restaurant Quality",
+            theme: "Cooking Like a Professional",
+            recipes: [
+              "Perfect braised beef stew",
+              "Crispy-skinned roast chicken",
+              "Sheet pan chicken and vegetables",
+              "Nigerian pepper soup (deeply flavored version)",
+              "Roasted fish with herb oil",
+              "One-pot jollof with proteins",
+              "30-minute weeknight meals (collection)",
+              "Simple elegant dessert (panna cotta or mousse)",
+            ],
+            resources:
+              "Restaurant kitchen videos for timing strategies. Plating and presentation techniques. Food temperature and holding guides.",
+            weeks: [
+              {
+                name: "Week 1: Braising & Slow Cooking",
+                days: {
+                  Monday: "Theory—braising vs. stewing vs. roasting.",
+                  Tuesday: "Classic beef stew (low and slow perfection).",
+                  Wednesday: "Braised chicken thighs in tomato sauce.",
+                  Thursday:
+                    "Nigerian pepper soup (long-simmered, deeply flavored).",
+                  Friday: "One-pot wonders (everything cooks together).",
+                  Weekend: "4-hour project—short ribs or oxtail.",
+                },
+                milestone: "Slow-cook moisture control.",
+              },
+              {
+                name: "Week 2: Roasting & High-Heat Techniques",
+                days: {
+                  Monday: "Whole roasted chicken (crispy skin, juicy meat).",
+                  Tuesday: "Roasted vegetables (caramelization mastery).",
+                  Wednesday: "Sheet pan dinners (everything roasts together).",
+                  Thursday: "Broiling technique (high heat finishing).",
+                  Friday: "Roasted fish (whole or fillet).",
+                  Weekend:
+                    "Roast chicken dinner party (full restaurant experience).",
+                },
+                milestone: "Internal temp mastery.",
+              },
+              {
+                name: "Week 3: Multi-Dish Timing & Coordination",
+                days: {
+                  Monday:
+                    "Cook 3 dishes that finish at the same time (timing chart).",
+                  Tuesday: "Practice mise en place for complex meals.",
+                  Wednesday:
+                    "'Dinner rush' simulation—cook for 4, everything hot at once.",
+                  Thursday:
+                    "One-hour meal challenge (start to plated in 60 mins).",
+                  Friday: "Batch cooking for the week (efficiency practice).",
+                  Weekend:
+                    "Full restaurant experience—appetizer, two mains, sides, dessert.",
+                },
+                milestone: "Coordinated menu execution.",
+              },
+              {
+                name: "Week 4: Speed & Efficiency",
+                days: {
+                  "Mon-Wed":
+                    "Daily speed challenges: 30 min / 20 min / 15 min dinner targets.",
+                  Thursday:
+                    "Knife skills speed test—see improvement from Month 1.",
+                  Friday:
+                    "'Clean as you go' practice—finish with clean kitchen.",
+                  Weekend:
+                    "Q2 Final Exam: Host a 4-course dinner for 4+ people. Restaurant-quality presentation and proper temperature.",
+                },
+                milestone: "Professional speed audit.",
+              },
+            ],
+            assessment: [
+              "Can you coordinate multiple dishes to finish simultaneously?",
+              "Can you cook a restaurant-quality meal at home?",
+              "Has your speed improved significantly from Month 1?",
+              "Can you cook under pressure without stress?",
+            ],
+          },
+          7: {
+            title: "Baking Mastery & Pastry Skills",
+            theme: "Precision Meets Artistry",
+            recipes: [
+              "Artisan sourdough bread",
+              "Perfect croissants",
+              "Laminated meat pies",
+              "Choux pastries (éclairs, cream puffs)",
+              "Chocolate mousse",
+              "Layer cake with buttercream",
+              "Fruit tart",
+              "Custom cookie recipe (your creation)",
+            ],
+            resources:
+              "Bread Baker's Apprentice by Peter Reinhart. YouTube: 'Lamination technique'. Nigerian baking communities online.",
+            weeks: [
+              {
+                name: "Week 1: Artisan Bread",
+                days: {
+                  Monday: "Sourdough starter creation (begin feeding regimen).",
+                  Tuesday: "Artisan white bread with pre-ferment.",
+                  Wednesday: "Whole wheat bread (understand different flours).",
+                  Thursday: "Enriched doughs (brioche, dinner rolls).",
+                  Friday:
+                    "Flatbreads and focaccia (herb-topped, dimpled perfection).",
+                  Weekend: "Bake 3 types of bread, share with neighbors.",
+                },
+                milestone: "Gluten/Yeast mastery.",
+              },
+              {
+                name: "Week 2: Pastry Fundamentals",
+                days: {
+                  Monday: "Puff pastry from scratch (labor of love).",
+                  Tuesday: "Croissant dough (lamination technique).",
+                  Wednesday: "Shortcrust pastry (tarts and pies).",
+                  Thursday: "Choux pastry (éclairs, cream puffs).",
+                  Friday:
+                    "Nigerian pastries elevated (meat pie with laminated dough).",
+                  Weekend: "Host a pastry brunch.",
+                },
+                milestone: "Technical lamination.",
+              },
+              {
+                name: "Week 3: Elegant Desserts",
+                days: {
+                  Monday: "Custards and creams (crème brûlée, puddings).",
+                  Tuesday: "Mousse (chocolate, fruit—learn aeration).",
+                  Wednesday: "Cheesecake (baking vs. no-bake).",
+                  Thursday: "Layer cakes (leveling, frosting, decorating).",
+                  Friday: "Fruit tarts (pastry cream, fresh fruit).",
+                  Weekend: "Birthday cake project—full decoration.",
+                },
+                milestone: "Aeration/Temperature control.",
+              },
+              {
+                name: "Week 4: Baking Improvisation",
+                days: {
+                  "Mon-Wed":
+                    "Use ratios to create muffins (1:2:3), cookies (no recipe), and quick bread variations.",
+                  Thursday: "Sourdough bread first bake (if starter is ready).",
+                  Friday:
+                    "Create a signature dessert (fusion of Nigerian + French/Italian).",
+                  Weekend:
+                    "Milestone: Open a 'pop-up bakery'—bake for friends/family, get feedback.",
+                },
+                milestone: "Baking by math/logic.",
+              },
+            ],
+            assessment: [
+              "Can you bake bread without a recipe using ratios?",
+              "Have you mastered laminated dough?",
+              "Can you create a stunning dessert for special occasions?",
+              "Do you understand baking chemistry enough to improvise?",
+            ],
+          },
+          8: {
+            title: "Global Techniques & Fusion Mastery",
+            theme: "Your Unique Culinary Voice",
+            recipes: [
+              "Perfect stir-fry (your style)",
+              "Pasta from scratch (any shape)",
+              "Risotto (classic + fusion version)",
+              "Dumplings (any filling you choose)",
+              "Fresh pasta with Nigerian sauce",
+              "Asian-Nigerian fusion dish (documented)",
+              "Mediterranean-Nigerian fusion dish (documented)",
+              "Your signature dish (the one you're known for)",
+            ],
+            resources:
+              "Watch cooking shows from different cuisines. Study fusion chefs (Roy Choi, José Andrés). Nigerian diaspora food blogs.",
+            weeks: [
+              {
+                name: "Week 1: Asian Techniques",
+                days: {
+                  Monday: "Stir-frying (high heat, quick cooking).",
+                  Tuesday: "Steaming (dumplings, fish, vegetables).",
+                  Wednesday: "Braising (Asian-style red-cooked meats).",
+                  Thursday: "Noodle soups (broth building).",
+                  Friday: "Fried rice mastery (Nigerian-Asian fusion).",
+                  Weekend: "Asian-Nigerian fusion feast.",
+                },
+                milestone: "Wok/Steamer mastery.",
+              },
+              {
+                name: "Week 2: Mediterranean Techniques",
+                days: {
+                  Monday: "Italian pasta from scratch.",
+                  Tuesday: "Risotto (constant stirring, creamy perfection).",
+                  Wednesday: "Greek grilling and marinades.",
+                  Thursday: "Spanish tapas (small plates concept).",
+                  Friday: "Mediterranean-Nigerian fusion.",
+                  Weekend: "Tapas party with Nigerian twists.",
+                },
+                milestone: "Ingredient balance.",
+              },
+              {
+                name: "Week 3: Latin American Techniques",
+                days: {
+                  Monday: "Mexican salsas and sauces (fresh, roasted, cooked).",
+                  Tuesday:
+                    "Brazilian feijoada (black bean stew—similar to Nigerian beans).",
+                  Wednesday: "Arepas and empanadas (corn-based vs. wheat).",
+                  Thursday: "Ceviche technique (acid-cooking fish).",
+                  Friday:
+                    "Plantain 5 ways (tostones, chips, caramelized, etc).",
+                  Weekend: "Latin-Nigerian fusion experiment.",
+                },
+                milestone: "Acid-cooking mastery.",
+              },
+              {
+                name: "Week 4: Your Signature Style Development",
+                days: {
+                  "Mon-Wed":
+                    "Create 3 original fusion dishes: Nigerian classic + foreign tech, foreign dish + Nigerian ingredient, and completely original creation.",
+                  Thursday: "Write out your signature recipes with photos.",
+                  Friday: "Test your recipes on friends/family.",
+                  Weekend:
+                    "Milestone: 'Chef's Tasting Menu'—5-course meal showcasing YOUR style.",
+                },
+                milestone: "Voice development.",
+              },
+            ],
+            assessment: [
+              "Can you execute techniques from 3+ cuisines confidently?",
+              "Have you created at least 3 original fusion recipes?",
+              "Do people ask you to make 'that dish you created'?",
+              "Has your risk aversion decreased significantly?",
+            ],
+          },
+          9: {
+            title: "Professional Skills & Catering Basics",
+            theme: "Cooking for the Masses",
+            recipes: [
+              "Party jollof (50+ servings)",
+              "Batch protein prep (freezer-friendly)",
+              "Large-batch sauce collection",
+              "Budget-friendly complete meals (5 versions)",
+              "Appetizers that scale (samosas, puff-puff, etc.)",
+              "Crowd-pleasing desserts (cake, fruit salad, puddings)",
+              "Zero-waste stock and scraps utilization",
+              "Event menu template (your go-to catering menu)",
+            ],
+            resources:
+              "Study Nigerian caterers on social media. Food costing spreadsheets. Event planning and timing checklists.",
+            weeks: [
+              {
+                name: "Week 1: Scaling & Batch Cooking",
+                days: {
+                  Monday:
+                    "Recipe scaling mathematics (small to large quantities).",
+                  Tuesday: "Batch cooking proteins (cook once, eat all week).",
+                  Wednesday: "Sauce and base prep (freeze portions).",
+                  Thursday: "Meal prep containers and storage strategies.",
+                  Friday: "One-day cook for entire week (efficiency extreme).",
+                  Weekend: "Prep freezer meals for the next 2 weeks.",
+                },
+                milestone: "Volume quality control.",
+              },
+              {
+                name: "Week 2: Cooking for Groups",
+                days: {
+                  Monday:
+                    "Buffet-style cooking (everything at once, stays hot).",
+                  Tuesday: "Family-style service (large platters).",
+                  Wednesday: "Cook for 10 people—timing and quantities.",
+                  Thursday: "Cook for 20 people—equipment limitations.",
+                  Friday: "Cook for 30 people—professional event.",
+                  Weekend: "Host a large gathering (party jollof for a crowd).",
+                },
+                milestone: "Volume timing management.",
+              },
+              {
+                name: "Week 3: Food Costing & Budget Cooking",
+                days: {
+                  Monday:
+                    "Calculate food costs for every meal you make this week.",
+                  Tuesday: "'₦5000 for 1 week' challenge—budget cooking.",
+                  Wednesday:
+                    "Use cheap cuts creatively (tenderizing, marinating).",
+                  Thursday:
+                    "Stretch expensive ingredients (a little goes a long way).",
+                  Friday: "Zero-waste cooking (use every part).",
+                  Weekend: "Create a budget meal plan for a month.",
+                },
+                milestone: "Profit/Margin understanding.",
+              },
+              {
+                name: "Week 4: Event Cooking & Catering Basics",
+                days: {
+                  "Mon-Wed":
+                    "Plan full event: Menu planning, shopping/prep timeline, and transport logic.",
+                  Thursday: "Food safety and holding temperatures.",
+                  Friday: "Presentation for events (chafing dishes, displays).",
+                  Weekend:
+                    "Q3 Final Exam: Cater a small event (15-20 people). Professional quality, on budget, on time.",
+                },
+                milestone: "On-time delivery.",
+              },
+            ],
+            assessment: [
+              "Can you cook for 20+ people without stress?",
+              "Do you understand food costs and profit margins?",
+              "Can you plan, shop, prep, and execute a full event?",
+              "Have you successfully catered at least one real event?",
+            ],
+          },
+          10: {
+            title: "Intuitive Cooking & Recipe Development",
+            theme: "Trust Your Instincts—You ARE a Chef",
+            recipes: [
+              "Your personal cooking method (documented philosophy)",
+              "Signature spice blends (5 types)",
+              "Original fusion dishes (at least 3 fully developed)",
+              "Quick meal formulas (templates you can adapt)",
+              "Flavor pairing guide (what you've learned works)",
+              "Improvisation techniques (your strategies)",
+              "Teaching curriculum (how to teach basics)",
+              "Personal cookbook v1.0 (your first 15-20 recipes)",
+            ],
+            resources:
+              "Study recipe development processes. Join online cooking communities. Read chef autobiographies for inspiration.",
+            weeks: [
+              {
+                name: "Week 1: No-Recipe Month Begins",
+                days: {
+                  "Mon-Fri": "Cook every meal without looking at any recipes.",
+                  Daily: "Taste, adjust, document what worked.",
+                  Weekend: "Host a completely improvised dinner party.",
+                },
+                rule: "Recipes only as inspiration, not instructions.",
+                milestone: "Palate as guide.",
+              },
+              {
+                name: "Week 2: Recipe Development Workshop",
+                days: {
+                  Monday: "Take a dish you love, deconstruct it, improve it.",
+                  Tuesday:
+                    "Create 3 variations of one recipe (same base, different flavors).",
+                  Wednesday:
+                    "Invent a dish from a random ingredient (market surprise).",
+                  Thursday:
+                    "Create a recipe that solves a problem (quick, cheap, impressive).",
+                  Friday:
+                    "Test all your recipes from this week again—refine them.",
+                  Weekend:
+                    "Write a personal cookbook (10 signature recipes so far).",
+                },
+                milestone: "Personal brand identity.",
+              },
+              {
+                name: "Week 3: Ingredient Deep Dives",
+                days: {
+                  Monday:
+                    "One ingredient, 5 dishes (e.g., plantains: fried, boiled, baked, grilled, mashed).",
+                  Tuesday:
+                    "One technique, 5 ingredients (e.g., roasting: chicken, veg, fish, fruit, nuts).",
+                  Wednesday: "Seasonal cooking—what's fresh right now?",
+                  Thursday:
+                    "Preservation techniques (pickling, fermenting, drying).",
+                  Friday:
+                    "Create condiments and flavor bombs (compound butters, pastes).",
+                  Weekend: "Stock your pantry with homemade staples.",
+                },
+                milestone: "Maximum creativity limits.",
+              },
+              {
+                name: "Week 4: Teaching & Sharing Knowledge",
+                days: {
+                  "Mon-Tue":
+                    "Teach someone else to cook—solidifies your knowledge.",
+                  Wednesday:
+                    "Create video or written tutorial for one of your recipes.",
+                  Thursday: "Answer cooking questions from friends/family.",
+                  Friday:
+                    "Create a 'cooking tips' document from all you've learned.",
+                  Weekend:
+                    "Milestone: Cooking class or workshop—teach 3-5 people a full meal.",
+                },
+                milestone: "Mastery via teaching.",
+              },
+            ],
+            assessment: [
+              "Can you cook a week's worth of meals without checking recipes?",
+              "Have you developed at least 10 original recipes?",
+              "Can you teach someone else to cook confidently?",
+              "Do you have a cooking philosophy you can articulate?",
+            ],
+          },
+          11: {
+            title: "Advanced Specialization & Creative Mastery",
+            theme: "Choose Your Adventure—Master Your Passion",
+            recipes: [
+              "Specialization Showcase 1",
+              "Specialization Showcase 2",
+              "20+ Portfolio-worthy dishes (photographed)",
+              "Signature Restaurant Menu",
+            ],
+            resources:
+              "Specialized books/courses for your chosen areas. Connect with experts. Study specialized chefs.",
+            weeks: [
+              {
+                name: "Week 1: Choose Your Specializations",
+                days: {
+                  Monday:
+                    "Pick 2-3 areas (Bread/Pastry, Nigerian Innovation, Fermentation, Dessert, Butchery, or Plant-Based).",
+                  "Tue-Fri": "Research and intensive initial practice.",
+                  Weekend: "Create a deep dive plan for the remaining weeks.",
+                },
+                milestone: "Technical commitment.",
+              },
+              {
+                name: "Weeks 2-3: Deep Dive Into Your Specializations",
+                days: {
+                  Daily: "Practice your chosen specialization intensively.",
+                  "Weekend 1":
+                    "Create a showcase meal highlighting Specialization #1.",
+                  "Weekend 2":
+                    "Create a showcase meal highlighting Specialization #2.",
+                },
+                milestone: "Technical excellence in chosen areas.",
+              },
+              {
+                name: "Week 4: Portfolio Development",
+                days: {
+                  "Mon-Tue": "Photograph your best 20 dishes professionally.",
+                  Wednesday:
+                    "Write descriptions for each dish (techniques, inspiration).",
+                  Thursday: "Create a physical or digital portfolio.",
+                  Friday:
+                    "Create your 'signature menu' (as if opening a restaurant).",
+                  Weekend:
+                    "Milestone: Portfolio presentation dinner—invite people to experience your journey.",
+                },
+                milestone: "Brand body of work.",
+              },
+            ],
+            assessment: [
+              "Have you achieved advanced skill in your specializations?",
+              "Is your portfolio restaurant-quality?",
+              "Could you open a pop-up restaurant with your signature menu?",
+              "Do you have a clear culinary identity?",
+            ],
+          },
+          12: {
+            title: "Mastery Celebration & Future Planning",
+            theme: "You're a Chef—What's Next?",
+            recipes: [
+              "Every milestone dish from the year",
+              "7-Course Tasting Menu (Original)",
+            ],
+            resources:
+              "Tasting menu planning guides. Service and hospitality training. Business planning resources.",
+            weeks: [
+              {
+                name: "Week 1: Skills Audit",
+                days: {
+                  Monday: "Review every month's goals—what have you mastered?",
+                  Tuesday: "Identify remaining weaknesses—address them.",
+                  Wednesday: "Cook every 'milestone' dish from the year.",
+                  Thursday:
+                    "Speed test—how fast can you execute now vs. Month 1?",
+                  Friday: "Create your 'culinary resume'—all skills acquired.",
+                  Weekend: "Reflection—write about your journey.",
+                },
+                milestone: "Growth verification.",
+              },
+              {
+                name: "Week 2: Teaching & Giving Back",
+                days: {
+                  "Mon-Fri":
+                    "Teach cooking to at least 5 people this week (classes or workshops).",
+                  Weekend:
+                    "Create a beginner's guide based on what you've learned.",
+                },
+                milestone: "Community impact.",
+              },
+              {
+                name: "Week 3: The Grand Finale Preparation",
+                days: {
+                  Monday: "Plan your final exam 7-course menu.",
+                  Tuesday: "Shop and budget for the event.",
+                  Wednesday: "Prep timeline and mise en place.",
+                  Thursday: "Test-run complex dishes.",
+                  Friday: "Final preparations.",
+                  Saturday: "REST day.",
+                },
+                milestone: "Professional event management.",
+              },
+              {
+                name: "Week 4: FINAL EXAM & CELEBRATION",
+                days: {
+                  Sunday:
+                    "The Ultimate Cooking Challenge: 7-course tasting menu for 6-8 guests. Original or adapted dishes.",
+                },
+                milestone: "Transition to Professional Chef.",
+              },
+            ],
+            assessment: [
+              "Did you execute your final exam flawlessly?",
+              "Can you cook at a professional level consistently?",
+              "Do you feel like a completely different cook than 12 months ago?",
+              "Are you ready for whatever culinary challenges come next?",
+            ],
+          },
+        },
+      };
+      const quarterAssessments = {
+        q1: [
+          "Cook a 3-course meal",
+          "Dice an onion < 3 mins",
+          "Bake bread",
+          "Balanced sauce",
+          "Protein doneness",
+        ],
+        q2: [
+          "Zero recipes meal",
+          "Original fusion dish",
+          "4-course party",
+          "Timing coordination",
+          "Plating",
+        ],
+      };
+
+      let state = {
+        view: "month",
+        month: 1,
+        searchQuery: "",
+        progress: JSON.parse(localStorage.getItem("chef_master_v3")) || {},
+      };
+
+      function init() {
+        renderNav();
+        renderContent();
+        calculateGlobalProgress();
+      }
+
+      function renderNav() {
+        const container = document.getElementById("nav-container");
+        let html = "";
+        const quarters = [
+          { id: "q1", title: "Q1: Foundation", months: [1, 2, 3] },
+          { id: "q2", title: "Q2: Elevation", months: [4, 5, 6] },
+          { id: "q3", title: "Q3: Mastery", months: [7, 8, 9] },
+          { id: "q4", title: "Q4: Intuition", months: [10, 11, 12] },
+        ];
+        quarters.forEach((q) => {
+          html += `<div class="nav-group"><div class="nav-group-title">${q.title}</div>`;
+          q.months.forEach((m) => {
+            html += `<a class="nav-link ${
+              state.month === m && state.view === "month" ? "active" : ""
+            }" onclick="setView(${m})">Month ${m}</a>`;
+          });
+          html += `</div>`;
+        });
+        html += `<div class="nav-group"><div class="nav-group-title">Office</div>
+                <a class="nav-link ${
+                  state.view === "pitfalls" ? "active" : ""
+                }" onclick="setStatic('pitfalls')">Survival Guide</a>
+                <a class="nav-link ${
+                  state.view === "resources" ? "active" : ""
+                }" onclick="setStatic('resources')">Master Resources</a>
+                <a class="nav-link ${
+                  state.view === "summary" ? "active" : ""
+                }" onclick="setStatic('summary')">Transformation</a>
+              </div>`;
+        container.innerHTML = html;
+      }
+      function setView(m) {
+        state.view = "month";
+        state.month = m;
+        state.searchQuery = "";
+        renderNav();
+        renderContent();
+      }
+
+      function setStatic(v) {
+        state.view = v;
+        state.month = null;
+        state.searchQuery = "";
+        renderNav();
+        renderContent();
+      }
+
+      function handleSearch(query) {
+        state.searchQuery = query.toLowerCase();
+        if (state.searchQuery.length > 0) {
+          state.view = "search";
+          renderContent();
+        } else {
+          state.view = "month";
+          renderContent();
+        }
+      }
+
+      function renderContent() {
+        const mount = document.getElementById("content-mount");
+        const titleEl = document.getElementById("view-title");
+
+        if (state.view === "search") {
+          titleEl.innerText = "Searching...";
+          let res = [];
+          Object.keys(cookingCurriculum.months).forEach((mNum) => {
+            const m = cookingCurriculum.months[mNum];
+            m.weeks.forEach((w) => {
+              if (JSON.stringify(w).toLowerCase().includes(state.searchQuery))
+                res.push({ month: mNum, week: w });
+            });
+          });
+          mount.innerHTML = `<div class="card"><h2>Matches for: "${
+            state.searchQuery
+          }"</h2>${res
+            .map(
+              (r) =>
+                `<div class="milestone" onclick="setView(${r.month})" style="cursor:pointer"><strong>Month ${r.month}: ${r.week.name}</strong></div>`
+            )
+            .join("")}</div>`;
+          return;
+        }
+
+        // --- MASTER RESOURCES VIEW ---
+        if (state.view === "resources") {
+          titleEl.innerText = "Master Resources";
+          mount.innerHTML = `
+            <div class="card">
+              <h2>Master Kitchen Toolkit</h2>
+              <div class="resource-grid" style="margin-top:30px;">
+                <div>
+                  <div class="meta-title">Books (Priority Order)</div>
+                  <ul style="list-style:none; font-size:0.85rem; line-height:1.8;">
+                    <li>\uD83D\uDCD9 <strong>Salt, Fat, Acid, Heat</strong> - Samin Nosrat (Essential)</li>
+                    <li>\uD83D\uDCD9 <strong>The Flavor Bible</strong> - Karen Page & Andrew Dornenburg</li>
+                    <li>\uD83D\uDCD9 <strong>Flour Water Salt Yeast</strong> - Ken Forkish</li>
+                    <li>\uD83D\uDCD9 <strong>On Food and Cooking</strong> - Harold McGee (Science)</li>
+                    <li>\uD83D\uDCD9 <strong>Nigerian Cookbooks</strong> - Ozoz Sokoh & Others</li>
+                  </ul>
+
+                  <div class="meta-title" style="margin-top:25px;">Websites & Blogs</div>
+                  <ul style="list-style:none; font-size:0.85rem; line-height:1.8;">
+                    <li>\uD83C\uDF10 <strong>Serious Eats</strong> (Technique & Science)</li>
+                    <li>\uD83C\uDF10 <strong>Kitchen Butterfly</strong> (Nigerian Food Blog)</li>
+                    <li>\uD83C\uDF10 <strong>Chef's Steps</strong> (Modernist Cooking)</li>
+                    <li>\uD83C\uDF10 <strong>King Arthur Baking</strong> (Baking Masterclass)</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="meta-title" style="margin-top:20px;">YouTube Channels</div>
+                  <ul style="list-style:none; font-size:0.85rem; line-height:1.8;">
+                    <li>\u25B6 <strong>Nigerian:</strong> Zeelicious, Sisi Yemmie, Yummy Medley</li>
+                    <li>\u25B6 <strong>Technique:</strong> ATK, Bon App\u00E9tit, Joshua Weissman</li>
+                    <li>\u25B6 <strong>Inspiration:</strong> Binging with Babish, Chef John</li>
+                    <li>\u25B6 <strong>Bread:</strong> The Bread Code, Pro Home Cooks</li>
+                    <li>\u25B6 <strong>Fusion:</strong> Maangchi, Chinese Cooking Demystified</li>
+                  </ul>
+
+                  <div class="meta-title" style="margin-top:25px;">Instagram / Social</div>
+                  <ul style="list-style:none; font-size:0.85rem; line-height:1.8;">
+                    <li>\uD83D\uDCF8 <strong>Nigerian Plating:</strong> Search #NigerianFood #NaijaFoodie</li>
+                    <li>\uD83D\uDCF8 <strong>Presentation:</strong> Follow Restaurant Accounts</li>
+                    <li>\uD83D\uDCF8 <strong>Styling:</strong> Follow Food Photographers</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="milestone" style="margin-top:30px; border-left-color: var(--sidebar);">
+                <strong>Local Resources (Lagos):</strong> 
+                Explore specialty markets for international ingredients. Join local cooking classes. Connect with other chefs and join cooking groups or clubs to overcome risk aversion.
+              </div>
+            </div>`;
+          return;
+        }
+
+        // --- PITFALLS & SURVIVAL VIEW ---
+        if (state.view === "pitfalls") {
+          titleEl.innerText = "The Survival Guide";
+          mount.innerHTML = `
+            <div style="max-width: 900px; margin: 0 auto; animation: fadeIn 0.6s ease;">
+              
+              <div style="margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--border);">
+                <h2 style="font-family: 'Arial', serif; font-weight: 700; color: var(--sidebar); font-size: 2.2rem; line-height: 1.2; margin-bottom: 15px;">
+                  Mastery is the <br><span style="color: var(--accent); font-style: italic;">removal of friction.</span>
+                </h2>
+                <p style="color: var(--text-dim); font-size: 1rem; max-width: 500px; line-height: 1.6;">
+                  Your risk-aversion is not a weakness—it is a commitment to precision. Use these strategies to navigate the plateaus of your first year.
+                </p>
+              </div>
+
+              <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent); margin-bottom: 40px;">I. The Technical Discipline</h3>
+              
+              <div style="display: grid; grid-template-columns: 1fr; gap: 60px; margin-bottom: 100px;">
+                
+                <div style="display: grid; grid-template-columns: 100px 1fr; gap: 20px; align-items: start;">
+                  <div style="font-family: 'Arial', serif; font-size: 3.5rem; color: var(--accent-light); font-style: italic; line-height: 0.8;">01</div>
+                  <div>
+                    <h4 style="font-size: 1.1rem; color: var(--sidebar); margin-bottom: 12px; font-weight: 600; letter-spacing: -0.5px;">Foundational Patience</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text); margin-bottom: 15px;">
+                      Moving to Month 2 before Month 1 is muscle memory is a failure of discipline. If a cut or a flame level feels like a struggle, you are not ready to advance.
+                    </p>
+                    <div style="display: inline-block; padding: 6px 12px; background: var(--bg); border-radius: 4px; font-size: 0.8rem; color: var(--sidebar); font-weight: 600;">
+                      FIX: Repeat weak areas until success is consistent 3x in a row.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 100px 1fr; gap: 20px; align-items: start;">
+                  <div style="font-family: 'Arial', serif; font-size: 3.5rem; color: var(--accent-light); font-style: italic; line-height: 0.8;">02</div>
+                  <div>
+                    <h4 style="font-size: 1.1rem; color: var(--sidebar); margin-bottom: 12px; font-weight: 600; letter-spacing: -0.5px;">The Rule of Five</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text); margin-bottom: 15px;">
+                      Cooking without tasting stage-by-stage leads to a "hollow" flavor profile. Balance (Salt/Fat/Acid/Heat) is a moving target that must be tracked.
+                    </p>
+                    <div style="display: inline-block; padding: 6px 12px; background: var(--bg); border-radius: 4px; font-size: 0.8rem; color: var(--sidebar); font-weight: 600;">
+                      FIX: Taste your dish at minimum five distinct stages before plating.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 100px 1fr; gap: 20px; align-items: start;">
+                  <div style="font-family: 'Arial', serif; font-size: 3.5rem; color: var(--accent-light); font-style: italic; line-height: 0.8;">03</div>
+                  <div>
+                    <h4 style="font-size: 1.1rem; color: var(--sidebar); margin-bottom: 12px; font-weight: 600; letter-spacing: -0.5px;">Recipe Dependency</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text); margin-bottom: 15px;">
+                      By Month 5, the paper should be your inspiration, never your tether. Relying on exact numbers prevents the development of professional intuition.
+                    </p>
+                    <div style="display: inline-block; padding: 6px 12px; background: var(--bg); border-radius: 4px; font-size: 0.8rem; color: var(--sidebar); font-weight: 600;">
+                      FIX: Force yourself off written notes 3x per week starting Month 5.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 100px 1fr; gap: 20px; align-items: start;">
+                  <div style="font-family: 'Arial', serif; font-size: 3.5rem; color: var(--accent-light); font-style: italic; line-height: 0.8;">04</div>
+                  <div>
+                    <h4 style="font-size: 1.1rem; color: var(--sidebar); margin-bottom: 12px; font-weight: 600; letter-spacing: -0.5px;">The Comparison Trap</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text); margin-bottom: 15px;">
+                      Social media showcases results, not the thousand failures that preceded them. Comparing your "Day 10" to their "Year 10" will destroy your morale.
+                    </p>
+                    <div style="display: inline-block; padding: 6px 12px; background: var(--bg); border-radius: 4px; font-size: 0.8rem; color: var(--sidebar); font-weight: 600;">
+                      FIX: Your only valid metric is your speed and taste versus last month.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div style="background: var(--sidebar); padding: 60px; border-radius: 16px; color: white;">
+                <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-bottom: 40px; text-align: center;">II. The Adaptive Mindset</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+                  
+                  <div style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
+                    <h5 style="color: var(--accent); font-size: 0.8rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Resource Scarcity</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.7; color: #b2bec3;">
+                      Gear limits are technique builders. Use a glass bottle as a rolling pin or a tin can as a weight. Skills persist while gadgets break.
+                    </p>
+                  </div>
+
+                  <div style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
+                    <h5 style="color: var(--accent); font-size: 0.8rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">The Skill Stall</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.7; color: #b2bec3;">
+                      When a skill plateaus, isolate it. Dedicate 15 minutes daily for one week to that specific task alone. Brute-force the muscle memory.
+                    </p>
+                  </div>
+
+                  <div style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
+                    <h5 style="color: var(--accent); font-size: 0.8rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Time Compression</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.7; color: #b2bec3;">
+                      If life overwhelms, switch to "Maintenance Mode." Cook twice weekly with extreme focus rather than five times with zero presence.
+                    </p>
+                  </div>
+
+                  <div style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
+                    <h5 style="color: var(--accent); font-size: 0.8rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Uncertainty Bias</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.7; color: #b2bec3;">
+                      Risk-aversion is cured by certainty. Master internal temperatures and food safety logs to eliminate the fear of the unknown.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>`;
+          return;
+        }
+
+        if (state.view === "summary") {
+          titleEl.innerText = "Transformation Log";
+          mount.innerHTML = `<div class="card"><h2>Year-End Summary</h2>
+            <div class="meta-grid">
+              <div><strong style="color:var(--danger)">START:</strong> Risk-averse, dependent, necessity-only.</div>
+              <div><strong style="color:var(--sidebar)">NOW:</strong> Intuitive, creative chef creating fusion cuisine.</div>
+            </div>
+            <h3 style="margin-top:30px;">Transformation Checklist</h3>
+            <ul style="font-size:0.9rem; line-height:1.8; list-style:none;">
+              <li>\u2713 Cook confidently without recipes</li>
+              <li>\u2713 Master fundamental and advanced techniques</li>
+              <li>\u2713 Create original dishes and fusion cuisine</li>
+              <li>\u2713 Elevate Nigerian food to restaurant quality</li>
+              <li>\u2713 Bake professionally-level breads and pastries</li>
+            </ul>
+        </div>`;
+          return;
+        }
+
+        const m = cookingCurriculum.months[state.month];
+
+        titleEl.innerText = `Month ${state.month}`;
+        let html = `<div class="card">
+            <div class="nav-group-title">Theme</div>
+            <h2>${m.title}</h2>
+            <p style="color:var(--text-dim); margin-top:5px; font-style:italic;">"${
+              m.theme
+            }"</p>
+            <div class="recipe-badge-list">${m.recipes
+              .map((r) => `<span class="recipe-badge">${r}</span>`)
+              .join("")}</div>
+       <div class="milestone" style="margin-top:20px; background: #fff; border: 1px solid var(--border); padding: 25px;">
+            <div class="nav-group-title" style="margin-bottom: 15px; color: var(--sidebar);">Month Resources</div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                ${
+                  Array.isArray(m.resources)
+                    ? m.resources
+                        .map(
+                          (res) => `
+                        <li style="font-size: 0.85rem; line-height: 1.5; color: var(--text); border-bottom: 1px solid var(--accent-light); padding-bottom: 8px;">
+                            <span style="color: var(--accent); margin-right: 10px;">•</span>${res}
+                        </li>`
+                        )
+                        .join("")
+                    : `<li style="font-size: 0.85rem; line-height: 1.5; color: var(--text);">
+                            <span style="color: var(--accent); margin-right: 10px;">•</span>${m.resources}
+                       </li>`
+                }
+            </ul>
+        </div>
+    </div>`;
+        m.weeks.forEach((w, i) => {
+          const wkKey = `m${state.month}w${i}`;
+          html += `<div class="card">
+            <div class="week-title">${w.name}</div>
+            ${Object.entries(w.days)
+              .map(([d, t]) => {
+                const tid = `${wkKey}_${d}`;
+                return `<div class="day-row">
+                    <input type="checkbox" id="${tid}" ${
+                  state.progress[tid] ? "checked" : ""
+                } onchange="toggleTask('${tid}')">
+                    <div class="day-name"><strong>${d}</strong></div>
+                    <div>${t}</div>
+                </div>`;
+              })
+              .join("")}
+            <div class="milestone"><strong>Weekend Milestone:</strong> ${
+              w.milestone
+            }</div>
+            
+         <h4 style="font-size:0.7rem; text-transform:uppercase; margin-top:25px;">Weekly Log</h4>
+            <table class="log-table">
+                <thead><tr><th>Day</th><th>Dish</th><th>Rate (1-5)</th><th>Key Learning</th></tr></thead>
+                <tbody>${["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+                  .map((d) => {
+                    const rid = `${wkKey}_log_${d}`;
+                    return `<tr><td style="font-weight:600; padding-left:10px">${d}</td>
+                    <td><input type="text" onchange="saveLog('${rid}_dish', this.value)" value="${
+                      state.progress[rid + "_dish"] || ""
+                    }"></td>
+                    <td><input type="number" onchange="saveLog('${rid}_rate', this.value)" value="${
+                      state.progress[rid + "_rate"] || ""
+                    }"></td>
+                    <td><input type="text" onchange="saveLog('${rid}_learn', this.value)" value="${
+                      state.progress[rid + "_learn"] || ""
+                    }"></td></tr>`;
+                  })
+                  .join("")}</tbody>
+            </table>
+
+            <div class="reflection-grid">
+                ${[
+                  ["well", "What went well"],
+                  ["imp", "Improvement"],
+                  ["skill", "New Skill"],
+                  ["risk", "Risk Taken"],
+                ]
+                  .map(
+                    (f) => `
+                    <div class="reflection-field">
+                        <label>${f[1]}</label>
+                        <textarea onchange="saveLog('${wkKey}_ref_${
+                      f[0]
+                    }', this.value)">${
+                      state.progress[wkKey + "_ref_" + f[0]] || ""
+                    }</textarea>
+                    </div>
+                `
+                  )
+                  .join("")}
+            </div>
+        </div>`;
+        }); // End of m.weeks.forEach
+
+        // --- SECTION 1: MONTHLY ASSESSMENT CHECKLIST (Verification) ---
+        html += `
+        <div class="card" style="border-top: 4px solid var(--sidebar);">
+            <h3 style="font-size: 1rem; color: var(--sidebar); margin-bottom: 20px;">Monthly Assessment: Verification</h3>
+            <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 20px;">Ensure these skills are consistent before considering the month complete.</p>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              ${m.assessment
+                .map((test, i) => {
+                  const aid = `m${state.month}_assess_${i}`;
+                  return `<div style="display: flex; align-items: center; gap: 15px;">
+                    <input type="checkbox" id="${aid}" ${
+                    state.progress[aid] ? "checked" : ""
+                  } onchange="toggleTask('${aid}')">
+                    <label for="${aid}" style="font-size: 0.95rem; cursor: pointer; color: var(--text);">${test}</label>
+                </div>`;
+                })
+                .join("")}
+            </div>
+        </div>`;
+
+        // --- SECTION 2: MONTHLY CHECK-IN (Portfolio/Reflections) ---
+        const mKey = `month${state.month}`;
+        html += `
+        <div class="card checkin-section" style="background:#fdfaf7;">
+            <h2 style="font-size: 1.2rem; margin-bottom:20px;">Monthly Portfolio Check-In</h2>
+            <div class="reflection-grid">
+                ${[
+                  ["skills", "Skills Practiced"],
+                  ["recipes", "Recipes Mastered"],
+                  ["chall", "Biggest Challenge"],
+                  ["fav", "Favorite Dish"],
+                ]
+                  .map(
+                    (f) => `
+                    <div class="reflection-field"><label>${
+                      f[1]
+                    }</label><textarea onchange="saveLog('${mKey}_${
+                      f[0]
+                    }', this.value)">${
+                      state.progress[mKey + "_" + f[0]] || ""
+                    }</textarea></div>
+                `
+                  )
+                  .join("")}
+            </div>
+            <div class="reflection-field" style="margin-top:15px"><label>What I learned about myself</label><textarea onchange="saveLog('${mKey}_self', this.value)">${
+          state.progress[mKey + "_self"] || ""
+        }</textarea></div>
+            <div class="photo-box" onclick="document.getElementById('img_${mKey}').click()">
+                <div style="font-size:0.8rem; color:var(--sidebar); font-weight:600">📷 Upload best dish from Month ${
+                  state.month
+                }</div>
+                <input type="file" id="img_${mKey}" hidden accept="image/*" onchange="handleImage('${mKey}', this)">
+                <img id="preview_${mKey}" src="${
+          state.progress[mKey + "_photo"] || ""
+        }" class="img-preview" style="display:${
+          state.progress[mKey + "_photo"] ? "block" : "none"
+        }">
+            </div>
+            <div class="reflection-field" style="margin-top:20px"><label>Next Month's Goals</label><textarea onchange="saveLog('${mKey}_goals', this.value)">${
+          state.progress[mKey + "_goals"] || ""
+        }</textarea></div>
+        </div>`;
+
+        if (state.month % 3 === 0) {
+          const q = state.month / 3;
+          const assessments = {
+            1: {
+              title: "Q1: Foundation & Confidence",
+              tests: [
+                "Cook 3-course meal for 4 (1 recipe max)",
+                "Dice onion < 3 mins uniform",
+                "Bake bread that rises",
+                "Create balanced sauce (no recipe)",
+                "Cook proteins to doneness consistently",
+              ],
+            },
+            2: {
+              title: "Q2: Flavor & Elevation",
+              tests: [
+                "Cook complete meal ZERO recipes",
+                "Create original fusion dish",
+                "Execute 4-course dinner party",
+                "Coordinate 3 dishes finishing together",
+                "Plate restaurant-style",
+              ],
+            },
+            3: {
+              title: "Q3: Mastery & Expansion",
+              tests: [
+                "Cater event for 15+ people",
+                "Master specialized skill",
+                "Create signature dish",
+                "Cook week on ₦5000 budget",
+                "Teach someone complete meal",
+              ],
+            },
+            4: {
+              title: "Q4: Intuition & Mastery",
+              tests: [
+                "Execute 7-course tasting menu",
+                "Cook 30 days no recipes",
+                "Portfolio of 20+ recipes",
+                "Articulate cooking philosophy",
+                "Feel like different cook vs Jan",
+              ],
+            },
+          };
+          const a = assessments[q];
+          html += `<div class="quarterly-assessment card">
+    <h3 style="color:var(--danger);margin-bottom:20px">${
+      a.title
+    } Assessment</h3>
+    <p style="color:var(--text-dim);margin-bottom:20px;font-size:0.95rem">Complete all tasks to verify readiness to advance.</p>
+    <div style="background:white;padding:20px;border-radius:8px">
+      ${a.tests
+        .map((test, i) => {
+          const tid = `q${q}_test${i}`;
+          return `<div class="assessment-test">
+          <input type="checkbox" id="${tid}" ${
+            state.progress[tid] ? "checked" : ""
+          } onchange="toggleTask('${tid}')">
+          <label for="${tid}" style="font-size:0.9rem;cursor:pointer;flex:1">${test}</label>
+        </div>`;
+        })
+        .join("")}
+    </div>
+    <div class="milestone" style="margin-top:20px"><strong>Ready to Advance?</strong> All checked = ready for Q${
+      q + 1
+    }. If not, revisit weak areas.</div>
+  </div>`;
+        }
+
+        mount.innerHTML = html;
+        window.scrollTo(0, 0);
+      }
+
+      function toggleMobileMenu() {
+        document.getElementById("sidebar").classList.toggle("open");
+      }
+
+      function saveLog(id, val) {
+        state.progress[id] = val;
+        localStorage.setItem("chef_master_v3", JSON.stringify(state.progress));
+        calculateGlobalProgress();
+      }
+
+      function toggleTask(id) {
+        const checkbox = document.getElementById(id);
+        state.progress[id] = checkbox.checked;
+        localStorage.setItem("chef_master_v3", JSON.stringify(state.progress));
+        calculateGlobalProgress();
+      }
+
+      function calculateGlobalProgress() {
+        const totalPossibleTasks = 100; // Reference number for the progress bar
+        const completedTasks = Object.entries(state.progress).filter(
+          ([k, v]) => v === true && k.includes("_")
+        ).length;
+        const percent = Math.min(
+          100,
+          (completedTasks / totalPossibleTasks) * 100
+        );
+        document.getElementById("master-progress").style.width = percent + "%";
+      }
+
+      init();
+    </script>
+  </body>
+</html>
